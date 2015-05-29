@@ -24,6 +24,10 @@ module.exports = function (rules) {
                     return typeof get(message, k) !== 'undefined'
                 else if (equal(pattern[k], match.undefined))
                     return typeof get(message, k) === 'undefined'
+                else if (equal(pattern[k], match.array))
+                    return Array.isArray(get(message, k))
+                else if (equal(pattern[k], match.object))
+                    return (get(message, k) && typeof get(message, k) === 'object')
                 else
                     return equal(get(message, k), pattern[k])
             }).length === patternKeys.length

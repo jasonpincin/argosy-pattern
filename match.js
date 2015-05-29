@@ -3,5 +3,7 @@ module.exports = {
     string    : {_:{type: 'string'}},
     bool      : {_:{type: 'boolean'}},
     defined   : {_:{type: 'defined'}},
-    undefined : {_:{type: 'undefined'}}
+    undefined : {_:{type: 'undefined'}},
+    array     : {_:{type: 'array'}},
+    object    : {_:{type: 'object'}}
 }
