@@ -1,6 +1,6 @@
 {
   "name": "argosy-pattern",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Test messages against Argosy patterns",
   "main": "index.js",
   "scripts": {
