@@ -14,7 +14,9 @@ var assert        = require('assert'),
     argosyPattern = require('argosy-pattern'),
     match         = require('argosy-pattern/match')
 
-var result = argosyPattern({ hello: 'world', 'message.count': match.number }).matches({
+var pattern = argosyPattern({ hello: 'world', 'message.count': match.number })
+
+var result = pattern.matches({
     hello: 'world',
     message: {
         count: 42
