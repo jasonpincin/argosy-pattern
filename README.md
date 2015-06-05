@@ -7,6 +7,8 @@
 
 Test messages against Argosy patterns.
 
+Part of the [Argosy](https://github.com/jasonpincin/argosy) family. 
+
 ## example
 
 ```javascript
