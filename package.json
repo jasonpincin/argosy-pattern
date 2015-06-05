@@ -11,7 +11,15 @@
     "type": "git",
     "url": "git://github.com/jasonpincin/argosy-pattern.git"
   },
-  "keywords": [],
+  "keywords": [
+    "micro-service",
+    "microservice",
+    "framework",
+    "micro",
+    "rpc",
+    "stream",
+    "pipe"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jasonpincin/argosy-pattern/issues"
