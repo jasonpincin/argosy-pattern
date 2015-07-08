@@ -8,7 +8,7 @@ test('encode', function (t) {
         orders: /\d+/
     }
     var encoded = pattern(rules).encode()
-    t.ok(typeof encoded.orders === 'string', 'regexp is converted to string')
+    t.ok(typeof encoded.orders === 'object' && encoded.orders.$regexp, 'regexp is converted to an object')
     t.deepEqual(encoded.cake, pattern.match.string, 'other objects preserved')
 
     t.end()

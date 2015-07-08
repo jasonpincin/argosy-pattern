@@ -43,7 +43,7 @@ module.exports = function (rules) {
             var nonRegExps = Object.keys(pattern).filter(isNotRegExp)
 
             return regExps.map(function regexpProp (k) {
-                return {key: k, value: pattern[k].toString()}
+                return {key: k, value: {$regexp: pattern[k].toString()}}
             }).concat(nonRegExps.map(function nonRegExpProp (k) {
                 return {key: k, value: pattern[k]}
             })).reduce(function combine (result, pattern) {
@@ -54,5 +54,25 @@ module.exports = function (rules) {
     })
 
     return pattern
+}
+module.exports.decode = function (rules) {
+    var pattern = clone(rules)
+    function isRegExp (k) {
+        return pattern[k].$regexp
+    }
+    function isNotRegExp (k) {
+        return !isRegExp(k)
+    }
+    var regExps = Object.keys(pattern).filter(isRegExp)
+    var nonRegExps = Object.keys(pattern).filter(isNotRegExp)
+
+    return regExps.map(function regexpProp (k) {
+        return {key: k, value: new RegExp(pattern[k].$regexp)}
+    }).concat(nonRegExps.map(function nonRegExpProp (k) {
+        return {key: k, value: pattern[k]}
+    })).reduce(function combine (result, pattern) {
+        result[pattern.key] = pattern.value
+        return result
+    }, {})
 }
 module.exports.match = match
