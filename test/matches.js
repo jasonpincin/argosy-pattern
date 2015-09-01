@@ -13,12 +13,11 @@ test('match value', function (t) {
 })
 
 test('match nested value', function (t) {
+    t.plan(2)
     var rules = {
         'pie.flavor': 'blueberry',
         cake: 'vanilla'
     }
     t.ok(pattern(rules).matches({ _: {cid:1}, pie: {flavor: 'blueberry'}, cake: 'vanilla', drink: 'milk'}), 'matches appropriate message')
     t.notOk(pattern(rules).matches({ _: {cid:1}, pie:'blueberry', cake: 'vanilla', drink: 'milk'}), 'does not match inappropriate message')
-
-    t.end()
 })
